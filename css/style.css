@@ -10,11 +10,12 @@
 
 body {
 	font-family: proximanovaRegular;
+	min-height: 100%;
+	position: relative;
 }
 
 h1,
-h2,
-h3  {
+h2 {
 	font-family: proximanovaBold, sans-serif;
 }
 
@@ -23,10 +24,11 @@ h3  {
 	margin: 0 auto;
 }
 
-.container_center {
+.container_center { 
 	text-align: center;
 }
 
+/* Шапка */
 .header {
 	width: 100%;
 	height: 80px;
@@ -79,16 +81,13 @@ h3  {
 	margin-right: 30px;
 }
 
-.panel__post-free-ads {
-	display: inline-block;
-}
-
 .main {
 	width: 100%;
 	height: 100%;
 	background-color: #f8f8f8;
 }
 
+/* стили заголовка */
 .caption {
 	background-color: #1abc9c;
 	width: 100%;
@@ -125,6 +124,7 @@ h3  {
 	font-family: proximanovaBold, sans-serif;
 }
 
+/* Основные партрнеры */
 .primory-vendor {
 	margin-top: 50px;
 }
@@ -155,6 +155,8 @@ h3  {
 	margin-right: 0;
 }
 
+/* ссылка на полный список и модальное окно */
+
 .big-list {
 	margin-top: 15px;
 }
@@ -168,6 +170,62 @@ h3  {
 	font-size: 12px;
 }
 
+.big-list-container {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: rgba(45,62,80,.5);
+}
+
+.big-list-modal {
+	width: 940px;
+	margin: 0 auto;
+	margin-top: 80px;
+	background-color: #fff;
+	border-radius: 7px;
+	position: relative;
+}
+
+.big-list-modal__btn-close {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	cursor: pointer;
+}
+
+.vertical-divider.vertical-divider_modal {
+	height: 861px;
+	margin: 80px 5px;
+}
+
+.platform {
+	width: 220px;
+	display: inline-block;
+	padding-left: 80px;
+	margin: 80px 0;
+	vertical-align: top;
+}
+
+.platform__item {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+.platform__pic {
+	vertical-align: middle;
+}
+
+.platform__link {
+	vertical-align: middle;
+	color: #2d3e50;
+	text-decoration: none;
+}
+
+/* Кнопка */
 .button-primory {
 	background-color: #3498db;
 	border-bottom: 4px solid #2980b9;
@@ -181,83 +239,15 @@ h3  {
 }
 
 .button-primory:active {
-	border: 4px solid #3dabf5;
+	border-bottom: 0;
+	border-top: 4px solid #3dabf5;
+	background-color: #3dabf5;
 }
 
 .button-primory_big {
 	width: 460px;
 	height: 76px;
 }
-
-.button-primory_drop-menu {
-	margin: 0;
-	height: 39px;
-	width: 200px;
-	line-height: 39px;
-	padding-left: 17px;
-	background-color: #f8f8f8;
-	border-bottom: 2px solid #d7dcde;
-	position: relative;
-	cursor: pointer;
-}
-.drop-link-toggle {
-	color: #3498db;
-	font-size: 16px;
-	cursor: pointer;
-	font-family: proximanovaBold, sans-serif;
-	color: #3498db;
-}
-
-.button-primory_drop-menu:hover {
-	background-color: #fff;
-	border-bottom: 2px solid #fff;
-}
-
-.button-primory_drop-menu:active {
-	border: none;
-}
-
-.drop-menu-containaer {
-	display: block;
-	position: absolute;
-	z-index: 1;
-	margin-left: -20px;
-	padding-left: 0;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-
-.button-primory_toggle-link {
-	border-radius: 0;
-	border: 1px solid #000;
-	border-top: none;
-	border-bottom: none;
-	font-size: 16px;
-	font-family: proximanovaBold, sans-serif;
-	color: #3498db;
-}
-
-.button-primory_toggle-link:last-child {
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom: 1px solid #000;
-}
-
-.button-primory_toggle-link:hover {
-	background-color: #3dabf5;
-	color: #fff;
-}
-
-.button-primory__triangle {
-	width: 0;
-	height: 0;
-	border: 8px solid transparent;
-	border-top: 8px solid #3498db;
-	position: absolute;
-	top: 16px;
-	right: 15px;
-}
-
 
 .button-primory__link {
 	width: 100%;
@@ -270,11 +260,103 @@ h3  {
 	text-decoration: none;
 }
 
-.feedback {
-	width: 100%;
-	padding-bottom: 100px;
+/* Нисподающее меню */
+.button-drop-menu {
+	display: inline-block;
+	margin: 0;
+	height: 39px;
+	width: 200px;
+	line-height: 39px;
+	padding-left: 17px;
+	background-color: #f8f8f8;
+	border-bottom: 2px solid #d7dcde;
+	position: relative;
+	cursor: pointer;
 }
 
+.button-drop-menu:hover {
+	background-color: #fff;
+	border-bottom: 2px solid #fff;
+}
+
+.button-drop-menu:active {
+	border: none;
+}
+
+.drop-link-toggle {
+	color: #3498db;
+	font-size: 16px;
+	cursor: pointer;
+	font-family: proximanovaBold, sans-serif;
+	color: #3498db;
+}
+
+.drop-menu-containaer {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	margin-left: -20px;
+	padding-left: 0;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.drop-menu-containaer_active {
+	display: block;
+}
+
+.drop-menu-containaer-link {
+	display: block;
+	text-decoration: none;
+	height: 39px;
+	width: 200px;
+	font-size: 16px;
+	font-family: proximanovaBold, sans-serif;
+	color: #3498db;
+	line-height: 39px;
+	padding-left: 17px;
+	background-color: #f8f8f8;
+}
+
+.drop-menu-containaer-link:last-child {
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom: 2px solid #d7dcde;
+	color: #d7dcde;
+}
+
+.drop-menu-containaer-link:hover {
+	background-color: #3dabf5;
+	color: #fff;
+}
+
+.drop-menu-containaer-link_disable:hover {
+	background-color: #f8f8f8;
+	color: #d7dcde;
+	cursor: default;
+}
+
+.button-primory__triangle {
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top: 7px solid #3498db;
+	position: absolute;
+	top: 16px;
+	right: 15px;
+}
+
+.button-primory__triangle_revert {
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #3498db;
+	position: absolute;
+	top: 9px;
+	right: 15px;
+}
+
+/* Блок с преимуществами */
 .conditions {
 	margin-bottom: 20px;
 }
@@ -284,12 +366,6 @@ h3  {
 	width: 300px;
 	margin: 0 auto;
 	display: inline-block;
-}
-
-.feedback__caption {
-	margin: 95px 0 50px 0;
-	font-size: 40px;
-	color: #7f8c8d;
 }
 
 .condition-item__icon {
@@ -334,6 +410,7 @@ h3  {
 	margin: 30px 0 20px 0;
 }
 
+/* разделитель с язычком */
 .divider-triangle {
 	margin: 80px 0 80px 0;
 	width: 100%;
@@ -365,6 +442,22 @@ h3  {
 	z-index: 1;
 	left: 50%;
 	top: -1px;
+}
+
+.divider-triangle__condition:before {
+	border-top: 20px solid #f8f8f8;
+}
+
+/* Отзывы */
+.feedback {
+	width: 100%;
+	padding-bottom: 100px;
+}
+
+.feedback__caption {
+	margin: 95px 0 50px 0;
+	font-size: 40px;
+	color: #7f8c8d;
 }
 
 .feedback__persona {
@@ -405,6 +498,7 @@ h3  {
 
 }
 
+/* Блок с предложением размещения объявления */
 .offer {
 	width: 100%;
 	height: 1185px;
@@ -439,7 +533,7 @@ h3  {
 	font-size: 18px;
 	color: #7f8c8d;
 }
-
+/* Способы оплаты, картинки */
 .pay-transfer {
 	margin-bottom: 100px;
 }
@@ -501,6 +595,7 @@ h3  {
 	background-position: -628px -22px
 }
 
+/* Контактная информация */
 .quest {
 	padding-bottom: 90px;
 }
@@ -552,6 +647,7 @@ h3  {
 	font-size: 18px;
 }
 
+/* Подвал */
 .footer {
 	width: 100%;
 	height: 75px;
